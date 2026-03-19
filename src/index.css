@@ -11,7 +11,10 @@ header {
   height: 80px;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #b6b1b1;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 .myntra_home {
@@ -431,4 +434,128 @@ a.action_container:link {
 
 .spinner {
   margin: 100px 0px;
+}
+
+/* ==== RESPONSIVE DESIGN ==== */
+
+/* Tablet (<= 992px) */
+@media (max-width: 992px) {
+
+  .nav_bar {
+    min-width: auto;
+    gap: 10px;
+  }
+
+  .search_bar {
+    width: 200px;
+  }
+
+  .items-container,
+  .category-items {
+    width: 90%;
+    margin: 30px 5%;
+  }
+
+  .bag-page {
+    width: 90%;
+    margin-left: 5%;
+  }
+}
+
+
+/* Mobile (<= 768px) */
+@media (max-width: 768px) {
+
+  header {
+    flex-direction: column;
+    height: auto;
+    padding: 10px 0;
+  }
+
+  .nav_bar {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .nav_bar a {
+    padding: 10px 0;
+    font-size: 12px;
+  }
+
+  .search_bar {
+    width: 90%;
+    margin: 10px 0;
+  }
+
+  .action_bar {
+    width: 100%;
+    justify-content: space-around;
+    margin: 10px 0;
+  }
+
+  .category_heading {
+    font-size: 1.4em;
+    margin-left: 15px;
+  }
+
+  .item-container {
+    width: 45%;
+  }
+
+  .sale_item {
+    width: 45%;
+  }
+
+  .footer_container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer_column {
+    margin-bottom: 20px;
+  }
+
+  /* Bag Page */
+  .bag-items-container,
+  .bag-summary {
+    width: 100%;
+    border: none;
+    padding: 0;
+  }
+
+  .bag-summary {
+    margin-top: 20px;
+  }
+}
+
+
+/* Small Mobile (<= 480px) */
+@media (max-width: 480px) {
+
+  .item-container,
+  .sale_item {
+    width: 100%;
+  }
+
+  .nav_bar a {
+    font-size: 11px;
+  }
+
+  .search_input {
+    font-size: 12px;
+  }
+
+  .company-name {
+    font-size: 14px;
+  }
+
+  .item-name {
+    font-size: 12px;
+  }
+
+  .btn-add-bag {
+    font-size: 14px;
+  }
 }
