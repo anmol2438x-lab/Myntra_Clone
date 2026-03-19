@@ -1,0 +1,67 @@
+import PropTypes from "prop-types";
+import { RiDeleteBin5Fill } from "react-icons/ri";
+import { useDispatch } from "react-redux";
+import { bagActions } from "../store/bagSlice";
+
+const BagItem = ({ item }) => {
+  const dispatch = useDispatch();
+
+  const handleRemoveItem = () => {
+    dispatch(bagActions.removeFromBag(item.id));
+  };
+
+  return (
+    <div className="bag-item-container">
+      <div className="item-left-part">
+        <img className="bag-item-img" src={item.image} alt="bag item" />
+      </div>
+
+      <div className="item-right-part">
+        <div className="company">{item.company}</div>
+        <div className="item-name">{item.item_name}</div>
+
+        <div className="price-container">
+          <span className="current-price">Rs {item.current_price}</span>
+          <span className="original-price">Rs {item.original_price}</span>
+          <span className="discount-percentage">
+            ({item.discount_percentage}% OFF)
+          </span>
+        </div>
+
+        <div className="return-period">
+          <span className="return-period-days">
+            {item.return_period ?? 0} days
+          </span>{" "}
+          return available
+        </div>
+
+        <div className="delivery-details">
+          Delivery by{" "}
+          <span className="delivery-details-days">
+            {item.delivery_date ?? "N/A"}
+          </span>
+        </div>
+      </div>
+
+      <div className="remove-from-cart" onClick={handleRemoveItem}>
+        <RiDeleteBin5Fill />
+      </div>
+    </div>
+  );
+};
+
+export default BagItem;
+
+BagItem.propTypes = {
+  item: PropTypes.shape({
+    id: PropTypes.string,
+    image: PropTypes.string,
+    company: PropTypes.string,
+    item_name: PropTypes.string,
+    current_price: PropTypes.number,
+    original_price: PropTypes.number,
+    discount_percentage: PropTypes.number,
+    return_period: PropTypes.number,
+    delivery_date: PropTypes.string,
+  }),
+};
