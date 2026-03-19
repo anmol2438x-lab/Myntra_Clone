@@ -52,7 +52,9 @@ const Header = () => {
 
         {value === "" && (
           <div className="placeholder_wrapper">
-            <span className="moving_text">products, brands and more</span>
+            <span className="moving_text">
+              products, brands and more | By Λnmol.
+            </span>
           </div>
         )}
       </div>
